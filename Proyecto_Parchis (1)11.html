@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>-
+	<title>Parchis</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<script>
+    var turno=0;
+    var turnomover=5;
+    fr1=0;
+    fr2=0;
+    fr3=0;
+    fr4=0;
+    var salio1=false;
+    var salio2=false;
+    var salio3=false;
+    var salio4=false;
+    var salio_alguna=false;
+    var ganarR=0;
+
+    fv1=17;
+    fv2=17;
+    fv3=17;
+    fv4=17;
+    var salio1v=false;
+    var salio2v=false;
+    var salio3v=false;
+    var salio4v=false;
+    var salio_algunav=false;
+    var cont=0;
+    var cont1=0;
+    var cont2=0;
+    var cont3=0;
+    ganarV=0;
+
+    fa1=34;
+    fa2=34;
+    fa3=34;
+    fa4=34;
+    var salio1a=false;
+    var salio2a=false;
+    var salio3a=false;
+    var salio4a=false;
+    var salio_algunaa=false;
+    var conta=0;
+    var cont1a=0;
+    var cont2a=0;
+    var cont3a=0;
+    var ganarA=0;
+
+    fa1z=51;
+    fa2z=51;
+    fa3z=51;
+    fa4z=51;
+    var salio1az=false;
+    var salio2az=false;
+    var salio3az=false;
+    var salio4az=false;
+    var salio_algunaaz=false;
+    var contaz=0;
+    var cont1az=0;
+    var cont2az=0;
+    var cont3az=0;
+    var ganarAZ=0;
+
+    var saco_ficha=false;
+
+    var num=0;
+    var num2=0;
+    
+		function girarDado() {
+      
+ 
+       num= Math.floor(Math.random()*6)+1;
+       num2= Math.floor(Math.random()*6)+1;
+       
+      document.getElementById("dado").src="cara"+num+".png";
+      document.getElementById("dado").width="50";
+      document.getElementById("dado2").src="cara"+num2+".png";
+      document.getElementById("dado2").width="50";
+  
+       if(turno==0){
+
+        document.getElementById("turno").innerHTML=" Tira ficha Jugador 1";
+        if(num==5 || num2==5 || (num+num2)==5){
+         if(fr1==0 && salio1==false && salio_alguna==false){
+        
+        fr1=fr1+1;
+        salio1=true;
+        salio_alguna=true;
+        saco_ficha=true;
+
+        document.getElementById("CASINTROJA1").style.backgroundColor="white";
+        document.getElementById("CAS1").style.backgroundColor="#FF0000";
+
+            }  
+              if(fr2==0 && salio2==false && salio_alguna==false){
+        fr2+=1;
+        salio2==true;
+        salio_alguna=true;
+        saco_ficha=true;
+        document.getElementById("CASINTROJA2").style.backgroundColor="white";
+        document.getElementById("CAS1").style.backgroundColor="#FF0000";
+
+              }
+              if(fr3==0 && salio3==false && salio_alguna==false){
+        fr3+=1;
+        salio3==true;
+        salio_alguna=true;
+        saco_ficha=true;
+        document.getElementById("CASINTROJA3").style.backgroundColor="white";
+        document.getElementById("CAS1").style.backgroundColor="#FF0000";
+
+              }
+              if(fr4==0 && salio4==false && salio_alguna==false){
+        fr4+=1;
+        salio4=true;
+        salio_alguna=true;
+        document.getElementById("CASINTROJA4").style.backgroundColor="white";
+        document.getElementById("CAS1").style.backgroundColor="#FF0000";
+        saco_ficha=true;
+               }
+              }
+             
+         
+
+         if(fr4==0 && fr3==0 &&fr2==0 && fr1==0 ){
+          turno=1;
+          turnomover=0;
+            document.getElementById("turno").innerHTML="Tira dados Jugador 2";
+          return;
+         }else{
+          turnomover=0;
+         }
+        
+
+         salio_alguna=false; 
+       }
+
+       if(turno==1){
+         document.getElementById("turno").innerHTML=" tira ficha Jugador 2 ";
+         if(num==5 || num2==5 || (num+num2)==5){
+         if(fv1==17 && salio1v==false && salio_algunav==false){
+        
+        fv1=fv1+1;
+        salio1v==true;
+        salio_algunav=true;
+        saco_ficha=true;
+        document.getElementById("CASINTVERDE1").style.backgroundColor="white";
+        document.getElementById("CAS18").style.backgroundColor="#008000";
+
+            }  
+              if(fv2==17 && salio2v==false && salio_algunav==false){
+        fv2+=1;
+        salio2v==true;
+        salio_algunav=true;
+        saco_ficha=true;
+        document.getElementById("CASINTVERDE2").style.backgroundColor="white";
+        document.getElementById("CAS18").style.backgroundColor="#008000";
+
+              }
+              if(fv3==17 && salio3v==false && salio_algunav==false){
+        fv3+=1;
+        salio3v==true;
+        salio_algunav=true;
+        saco_ficha=true;
+        document.getElementById("CASINTVERDE3").style.backgroundColor="white";
+        document.getElementById("CAS18").style.backgroundColor="#008000";
+
+              }
+              if(fv4==17 && salio4v==false && salio_algunav==false){
+        fv4+=1;
+        salio4v==true;
+        salio_algunav=true;
+        saco_ficha=true;
+        document.getElementById("CASINTVERDE4").style.backgroundColor="white";
+        document.getElementById("CAS18").style.backgroundColor="#008000";
+               }
+              }
+
+         if(fv4==17 && fv3==17 &&fv2==17 && fv1==17 ){
+          turno=2;
+          turnomover=3;
+          document.getElementById("turno").innerHTML=" Tira dados Jugador 3";
+          saco_ficha=true;
+          return;
+         }else{
+          turnomover=1;
+         }
+        salio_algunav=false;      
+        
+       }
+       
+       if(turno==2){
+        document.getElementById("turno").innerHTML=" Tira ficha Jugador 3";
+         if(num==5 || num2==5 || (num+num2)==5){
+         if(fa1==34 && salio1a==false && salio_algunaa==false){
+        
+        fa1=fa1+1;
+        salio1a==true;
+        salio_algunaa=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAMARILLA1").style.backgroundColor="white";
+        document.getElementById("CAS35").style.backgroundColor="#DAA520";
+
+            }  
+              if(fa2==34 && salio2a==false && salio_algunaa==false){
+        fa2+=1;
+        salio2a==true;
+        salio_algunaa=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAMARILLA2").style.backgroundColor="white";
+        document.getElementById("CAS35").style.backgroundColor="#DAA520";
+
+              }
+              if(fa3==34 && salio3a==false && salio_algunaa==false){
+        fa3+=1;
+        salio3a==true;
+        salio_algunaa=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAMARILLA3").style.backgroundColor="white";
+        document.getElementById("CAS35").style.backgroundColor="#DAA520";
+
+              }
+              if(fa4==34 && salio4a==false && salio_algunaa==false){
+        fa4+=1;
+        salio4a==true;
+        salio_algunaa=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAMARILLA4").style.backgroundColor="white";
+        document.getElementById("CAS35").style.backgroundColor="#DAA520";
+               }
+              }
+
+         if(fa4==34 && fa3==34 &&fa2==34 && fa1==34 ){
+          turno=3;
+           turnomover=3;
+          document.getElementById("turno").innerHTML=" Tira dados Jugador 4";
+          return;
+         }else{
+          turnomover=2;
+         }
+        salio_algunaa=false;
+
+        }
+       if(turno==3){
+        document.getElementById("turno").innerHTML=" tira ficha Jugador 4";
+         if(num==5 || num2==5 || (num+num2)==5){
+         if(fa1z==51 && salio1az==false && salio_algunaaz==false){
+        
+        fa1z=fa1z+1;
+        salio1az==true;
+        salio_algunaaz=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAZUL1").style.backgroundColor="white";
+        document.getElementById("CAS52").style.backgroundColor="#00008B";
+
+            }  
+              if(fa2z==51 && salio2az==false && salio_algunaaz==false){
+        fa2z+=1;
+        salio2az==true;
+        salio_algunaaz=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAZUL2").style.backgroundColor="white";
+        document.getElementById("CAS52").style.backgroundColor="#00008B";
+
+              }
+              if(fa3z==51 && salio3az==false && salio_algunaaz==false){
+        fa3z+=1;
+        salio3az==true;
+        salio_algunaaz=true;
+        document.getElementById("CASINTAZUL3").style.backgroundColor="white";
+        document.getElementById("CAS52").style.backgroundColor="#00008B";
+
+              }
+              if(fa4z==51 && salio4az==false && salio_algunaaz==false){
+        fa4z+=1;
+        salio4az==true;
+        salio_algunaaz=true;
+        saco_ficha=true;
+        document.getElementById("CASINTAZUL4").style.backgroundColor="white";
+        document.getElementById("CAS52").style.backgroundColor="#00008B";
+               }
+              }
+
+         if(fa4z==51 && fa3z==51 &&fa2z==51 && fa1z==51  ){
+           turno=0;
+           turnomover=3;
+          document.getElementById("turno").innerHTML=" tira dados Jugador 1";
+          return;
+         }else{
+          turnomover=3;
+         }
+        salio_algunaaz=false;      
+      
+       }
+    }
+    function avanzar(numficha){
+      
+     if(turnomover==0){
+      if(numficha==1){
+        
+        if(fr1>63 || (num2+num+fr1)>63){
+          if(fr1==1){
+
+          }
+       document.getElementById("CAS"+fr1).style.backgroundColor="white";
+        document.getElementById("CASROJA7").style.backgroundColor="#FF0000"; 
+       ganarR++;
+        }else{
+        if(fr1==fr2 || fr1==fr3 || fr1==fr4){
+        }else{
+          if(fr1==1){
+          document.getElementById("CAS1").style.backgroundColor="#FF4500";
+        }else{
+          document.getElementById("CAS"+fr1).style.backgroundColor="white";
+        }
+        }
+        if(saco_ficha==true){
+           
+          fr1=fr1+(num+num2)-5;
+         
+        document.getElementById("CAS"+fr1).style.backgroundColor="#FF0000";
+
+        }else{
+          
+         fr1=fr1+(num+num2);
+          
+        document.getElementById("CAS"+fr1).style.backgroundColor="#FF0000"; 
+        element.getAttribute("data-j1");      
+        }
+        saco_ficha=false; 
+    }
+  }
+
+  if(numficha==2){
+        
+        if(fr2>63 || (num2+num+fr2)>63){
+       document.getElementById("CAS"+fr2).style.backgroundColor="white";
+        document.getElementById("CASROJA6").style.backgroundColor="#FF0000"; 
+       ganarR++;
+        }else{
+        if(fr2==fr1 || fr2==fr3 || fr2==fr4){
+        }else{
+          if(fr2==1){
+          document.getElementById("CAS1").style.backgroundColor="#FF4500";
+        }else{
+          document.getElementById("CAS"+fr2).style.backgroundColor="white";
+        }
+        }
+         if(saco_ficha==true){ 
+          fr2=fr2+(num+num2)-5;
+        document.getElementById("CAS"+fr2).style.backgroundColor="#FF0000";
+        }else{
+         fr2=fr2+(num+num2);
+        document.getElementById("CAS"+fr2 ).style.backgroundColor="#FF0000"; 
+        }
+        saco_ficha=false;
+      
+    }
+  }
+if(numficha==3){
+        
+        if(fr3>63 || (num2+num+fr3)>63){
+       document.getElementById("CAS"+fr3).style.backgroundColor="white";
+        document.getElementById("CASROJA5").style.backgroundColor="#FF0000"; 
+       ganarR++;
+        }else{
+        if(fr3==fr2 || fr3==fr1 || fr3==fr4){
+        }else{
+          if(fr3==1){
+          document.getElementById("CAS1").style.backgroundColor="#FF4500";
+        }else{
+          document.getElementById("CAS"+fr3).style.backgroundColor="white";
+        }
+        }
+         if(saco_ficha==true){
+        fr3=fr3+(num+num2)-5;
+        document.getElementById("CAS"+fr3).style.backgroundColor="#FF0000";
+        }else{
+         fr3=fr3+(num+num2);
+        document.getElementById("CAS"+fr3).style.backgroundColor="#FF0000"; 
+        }
+        saco_ficha=false;
+      
+    }
+  }
+  if(numficha==4){
+        
+        if(fr4>63 || (num2+num+fr4)>63){
+       document.getElementById("CAS"+fr4).style.backgroundColor="white";
+        document.getElementById("CASROJA4").style.backgroundColor="#FF0000"; 
+       ganarR++;
+        }else{
+        if(fr4==fr2 || fr4==fr3 || fr4==fr1){
+        }else{
+          if(fr4==1){
+          document.getElementById("CAS1").style.backgroundColor="#FF4500";
+        }else{
+          document.getElementById("CAS"+fr4).style.backgroundColor="white";
+        }
+        }
+         if(saco_ficha==true){ 
+          fr4=fr4+(num+num2)-5;
+        document.getElementById("CAS"+fr4).style.backgroundColor="#FF0000";
+        }else{
+         fr4=fr4+(num+num2)
+        document.getElementById("CAS"+fr4).style.backgroundColor="#FF0000"; 
+        }
+        saco_ficha=false;
+      
+    }
+  }
+   document.getElementById("turno").innerHTML=" Tira dados Jugador 2";
+  
+  turno=1
+  if (ganarR==4) {
+    alert("Gano el Rojo");
+  }
+}
+if(turnomover==1){
+      if(numficha==1){
+       
+        if(cont>63 || cont+(num+num2)>63 ){
+            document.getElementById("CAS"+fv1).style.backgroundColor="white";
+            document.getElementById("CASVERDE7").style.backgroundColor="#008000"; 
+            ganarV++;
+          }
+         cont=cont+(num+num2);
+        if(fv1==fv2 || fv1==fv3 || fv1==fv4){
+        }else{
+         if(fv1==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        }else{
+          document.getElementById("CAS"+fv1).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fv1>68 && cont<63){
+        
+        document.getElementById("CAS"+fv1).style.backgroundColor="white";
+         
+        fv1=fv1+(num+num2)-68;
+        document.getElementById("CAS"+fv1).style.backgroundColor="#008000";
+        
+        }else if(cont<63){
+          
+          if(saco_ficha==true){
+          
+          fv1=fv1+(num+num2)-5;
+        document.getElementById("CAS"+fv1).style.backgroundColor="#008000";
+        }else{
+         fv1=fv1+(num+num2)
+        document.getElementById("CAS"+fv1).style.backgroundColor="#008000"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+        if(numficha==2){
+       
+        if(cont1>63 || cont1+(num+num2)>63 ){
+            document.getElementById("CAS"+fv2).style.backgroundColor="white";
+            document.getElementById("CASVERDE6").style.backgroundColor="#008000"; 
+            ganarV++;
+          }
+         cont1=cont1+(num+num2);
+        if(fv2==fv1 || fv2==fv3 || fv2==fv4){
+        }else{
+         if(fv2==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        }else{
+          document.getElementById("CAS"+fv2).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fv2>68 && cont1<63){
+        
+        document.getElementById("CAS"+fv2).style.backgroundColor="white";
+         
+        fv2=fv2+(num+num2)-68;
+        document.getElementById("CAS"+fv2).style.backgroundColor="#008000";
+        
+        }else if(cont1<63){
+          
+        if(saco_ficha==true){
+          
+          fv2=fv2+(num+num2)-5;
+        document.getElementById("CAS"+fv2).style.backgroundColor="#008000";
+        }else{
+         fv2=fv2+(num+num2)
+        document.getElementById("CAS"+fv2).style.backgroundColor="#008000"; 
+        }
+        saco_ficha=false;
+       
+        }
+           }
+           if(numficha==3){
+       
+        if(cont2>63 || cont2+(num+num2)>63 ){
+            document.getElementById("CAS"+fv3).style.backgroundColor="white";
+            document.getElementById("CASVERDE5").style.backgroundColor="#008000"; 
+            ganarV++;
+          }
+         cont2=cont2+(num+num2);
+        if(fv3==fv2 || fv3==fv1 || fv3==fv4){
+        }else{
+          if(fv3==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        }else{
+          document.getElementById("CAS"+fv3).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fv3>68 && cont2<63){
+       
+        document.getElementById("CAS"+fv3).style.backgroundColor="white";
+         
+        fv3=fv3+(num+num2)-68;
+        document.getElementById("CAS"+fv3).style.backgroundColor="#008000";
+        
+        }else if(cont2<63){
+          
+      if(saco_ficha==true){
+         if(fv3==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        } 
+          fv3=fv3+(num+num2)-5;
+        document.getElementById("CAS"+fv3).style.backgroundColor="#008000";
+        }else{
+         fv3=fv3+(num+num2)
+        document.getElementById("CAS"+fv3).style.backgroundColor="#008000"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+           if(numficha==4){
+       
+        if(cont3>63 || cont3+(num+num2)>63 ){
+            document.getElementById("CAS"+fv4).style.backgroundColor="white";
+            document.getElementById("CASVERDE4").style.backgroundColor="#008000"; 
+            ganarV++;
+          }
+         cont3=cont3+(num+num2);
+        if(fv4==fv2 || fv4==fv3 || fv4==fv1){
+        }else{
+          if(fv4==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        }else{
+          document.getElementById("CAS"+fv3).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fv4>68 && cont3<63){
+        
+        document.getElementById("CAS"+fv4).style.backgroundColor="white";
+         
+        fv4=fv4+(num+num2)-68;
+        document.getElementById("CAS"+fv4).style.backgroundColor="#008000";
+        
+        }else if(cont3<63){
+          
+          if(saco_ficha==true){
+             if(fv4==18){
+          document.getElementById("CAS18").style.backgroundColor="#32CD32";
+        } 
+          fv4=fv4+(num+num2)-5;
+        document.getElementById("CAS"+fv4).style.backgroundColor="#008000";
+        }else{
+         fv4=fv4+(num+num2)
+        document.getElementById("CAS"+fv4).style.backgroundColor="#008000"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+      document.getElementById("turno").innerHTML=" Tira dados Jugador 3";
+       turno=2;
+       if(ganarV==4){
+        alert("Gano el Verde");
+       }
+      }
+      if(turnomover==2){
+      if(numficha==1){
+       
+        if(conta>63 || conta+(num+num2)>63 ){
+            document.getElementById("CAS"+fa1).style.backgroundColor="white";
+            document.getElementById("CASAMARILLA7").style.backgroundColor="#DAA520"; 
+            ganarA++;
+          }
+         conta=conta+(num+num2);
+        if(fa1==fa2 || fa1==fa3 || fa1==fa4){
+        }else{
+         if(fa1==35){
+          document.getElementById("CAS35").style.backgroundColor="#FFD700";
+        }else{
+          document.getElementById("CAS"+fa1).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa1>68 && conta<63){
+        
+        document.getElementById("CAS"+fa1).style.backgroundColor="white";
+         
+        fa1=fa1+(num+num2)-68;
+        document.getElementById("CAS"+fa1).style.backgroundColor="#DAA520";
+        
+        }else if(conta<63){
+          
+         
+          if(saco_ficha==true){
+            
+          fa1=fa1+(num+num2)-5;
+        document.getElementById("CAS"+fa1).style.backgroundColor="#DAA520";
+        }else{
+         fa1=fa1+(num+num2)
+        document.getElementById("CAS"+fa1).style.backgroundColor="#DAA520"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+        if(numficha==2){
+       
+        if(cont1a>63 || cont1a+(num+num2)>63 ){
+            document.getElementById("CAS"+fa2).style.backgroundColor="white";
+            document.getElementById("CASAMARILLA6").style.backgroundColor="#DAA520"; 
+            ganarA++;
+          }
+         cont1a=cont1a+(num+num2);
+        if(fa2==fa1 || fa2==fa3 || fa2==fa4){
+        }else{
+         if(fa2==35){
+          document.getElementById("CAS35").style.backgroundColor="#FFD700";
+        }else{
+          document.getElementById("CAS"+fa2).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa2>68 && cont1a<63){
+        
+        document.getElementById("CAS"+fa2).style.backgroundColor="white";
+         
+        fa2=fa2+(num+num2)-68;
+        document.getElementById("CAS"+fa2).style.backgroundColor="#DAA520";
+        
+        }else if(cont1a<63){
+          
+             
+          if(saco_ficha==true){
+           
+          fa2=fa2+(num+num2)-5;
+        document.getElementById("CAS"+fa2).style.backgroundColor="#DAA520";
+        }else{
+         fa2=fa2+(num+num2)
+        document.getElementById("CAS"+fa2).style.backgroundColor="#DAA520"; 
+        }
+        saco_ficha=false;
+        }
+           }
+           if(numficha==3){
+       
+        if(cont2a>63 || cont2a+(num+num2)>63 ){
+            document.getElementById("CAS"+fa3).style.backgroundColor="white";
+            document.getElementById("CASAMARILLA5").style.backgroundColor="#DAA520";
+            ganarA++; 
+          }
+         cont2a=cont2a+(num+num2);
+        if(fa3==fa2 || fa3==fa1 || fa3==fa4){
+        }else{
+          if(fa3==35){
+          document.getElementById("CAS35").style.backgroundColor="#FFD700";
+        }else{
+          document.getElementById("CAS"+fa3).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa3>68 && cont2a<63){
+       
+        document.getElementById("CAS"+fa3).style.backgroundColor="white";
+         
+        fa3=fa3+(num+num2)-68;
+        document.getElementById("CAS"+fa3).style.backgroundColor="#DAA520";
+        
+        }else if(cont2a<63){
+      
+          if(saco_ficha==true){
+          
+          fa3=fa3+(num+num2)-5;
+        document.getElementById("CAS"+fa3).style.backgroundColor="#DAA520";
+        }else{
+         fa3=fa3+(num+num2)
+        document.getElementById("CAS"+fa3).style.backgroundColor="#DAA520"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+           if(numficha==4){
+       
+        if(cont3a>63 || cont3a+(num+num2)>63 ){
+            document.getElementById("CAS"+fa4).style.backgroundColor="white";
+            document.getElementById("CASAMARILLA4").style.backgroundColor="#DAA520";
+            ganarA++; 
+          }
+         cont3a=cont3a+(num+num2);
+        if(fa4==fa2 || fa4==fa3 || fa4==fa1){
+        }else{
+          if(fa4==35){
+          document.getElementById("CAS35").style.backgroundColor="#FFD700";
+        }else{
+          document.getElementById("CAS"+fa4).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa4>68 && cont3a<63){
+        
+        document.getElementById("CAS"+fa4).style.backgroundColor="white";
+         
+        fa4=fa4+(num+num2)-68;
+        document.getElementById("CAS"+fa4).style.backgroundColor="#DAA520";
+        
+        }else if(cont3a<63){
+          
+           if(saco_ficha==true){
+           
+          fa4=fa4+(num+num2)-5;
+        document.getElementById("CAS"+fa4).style.backgroundColor="#DAA520";
+        }else{
+         fa4=fa4+(num+num2)
+        document.getElementById("CAS"+fa4).style.backgroundColor="#DAA520"; 
+        }
+        saco_ficha=false;
+        }
+           }
+           document.getElementById("turno").innerHTML=" Tira dados Jugador 4";
+           turno=3;
+         if (ganarA==4) {
+          alert("Gano el amarillo");
+         }
+      }
+       if(turnomover==3){
+      if(numficha==1){
+       
+        if(contaz>63 || contaz+(num+num2)>63 ){
+            document.getElementById("CAS"+fa1z).style.backgroundColor="white";
+            document.getElementById("CASAZUL7").style.backgroundColor="#00005B"; 
+            ganarAZ++;
+          }
+         contaz=contaz+(num+num2);
+        if(fa1z==fa2z || fa1z==fa3z || fa1z==fa4z){
+        }else{
+          if(fa1z==52){
+          document.getElementById("CAS52").style.backgroundColor="#6495ED";
+        }else{
+          document.getElementById("CAS"+fa1z).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa1z>68 && contaz<63){
+        
+        document.getElementById("CAS"+fa1z).style.backgroundColor="white";
+         
+        fa1z=fa1z+(num+num2)-68;
+        document.getElementById("CAS"+fa1z).style.backgroundColor="#00005B";
+        
+        }else if(contaz<63){
+           if(saco_ficha==true){
+           
+          fa1z=fa1z+(num+num2)-5;
+        document.getElementById("CAS"+fa1z).style.backgroundColor="#00005B";
+        }else{
+         fa1z=fa1z+(num+num2)
+        document.getElementById("CAS"+fa1z).style.backgroundColor="#00005B"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+        if(numficha==2){
+       
+        if(cont1az>63 || cont1az+(num+num2)>63 ){
+            document.getElementById("CAS"+fa2z).style.backgroundColor="white";
+            document.getElementById("CASAZUL6").style.backgroundColor="#00005B"; 
+             ganarAZ++;
+          }
+         cont1az=cont1az+(num+num2);
+        if(fa2z==fa1z || fa2z==fa3z || fa2z==fa4z){
+        }else{
+         if(fa2z==52){
+          document.getElementById("CAS52").style.backgroundColor="#6495ED";
+        }else{
+          document.getElementById("CAS"+fa2z).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa2z>68 && cont1az<63){
+        
+        document.getElementById("CAS"+fa2z).style.backgroundColor="white";
+         
+        fa2z=fa2z+(num+num2)-68;
+        document.getElementById("CAS"+fa2z).style.backgroundColor="#00005B";
+        
+        }else if(cont1az<63){
+          
+         if(saco_ficha==true){
+          
+          fa2z=fa2z+(num+num2)-5;
+        document.getElementById("CAS"+fa2z).style.backgroundColor="#00005B";
+        }else{
+         fa2z=fa2z+(num+num2)
+        document.getElementById("CAS"+fa2z).style.backgroundColor="#00005B"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+           if(numficha==3){
+       
+        if(cont2az>63 || cont2az+(num+num2)>63 ){
+            document.getElementById("CAS"+fa3z).style.backgroundColor="white";
+            document.getElementById("CASAZUL5").style.backgroundColor="#00005B"; 
+             ganarAZ++;
+          }
+         cont2az=cont2az+(num+num2);
+        if(fa3z==fa2z || fa3z==fa1z || fa3z==fa4z){
+        }else{
+       if(fa3z==52){
+          document.getElementById("CAS52").style.backgroundColor="#6495ED";
+        }else{
+          document.getElementById("CAS"+fa3z).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa3z>68 && cont2az<63){
+       
+        document.getElementById("CAS"+fa3z).style.backgroundColor="white";
+         
+        fa3z=fa3z+(num+num2)-68;
+        document.getElementById("CAS"+fa3z).style.backgroundColor="#00005B";
+        
+        }else if(cont2az<63){
+          
+         if(saco_ficha==true){
+           
+          fa3z=fa3z+(num+num2)-5;
+        document.getElementById("CAS"+fa3z).style.backgroundColor="#00005B";
+        }else{
+         fa3z=fa3z+(num+num2)
+        document.getElementById("CAS"+fa3z).style.backgroundColor="#00005B"; 
+        }
+        saco_ficha=false;
+        
+        }
+           }
+           if(numficha==4){
+       
+        if(cont3az>63 || cont3az+(num+num2)>63 ){
+            document.getElementById("CAS"+fa4z).style.backgroundColor="white";
+            document.getElementById("CASAZUL4").style.backgroundColor="#00005B"; 
+             ganarAZ++;
+          }
+         cont3az=cont3az+(num+num2);
+        if(fa4z==fa2z || fa4z==fa3z || fa4z==fa1z){
+        }else{
+         if(fa4z==52){
+          document.getElementById("CAS52").style.backgroundColor="#6495ED";
+        }else{
+          document.getElementById("CAS"+fa4z).style.backgroundColor="white";
+        }
+        }
+        if((num+num2)+fa4z>68 && cont3az<63){
+        
+        document.getElementById("CAS"+fa4z).style.backgroundColor="white";
+         
+        fa4z=fa4z+(num+num2)-68;
+        document.getElementById("CAS"+fa4z).style.backgroundColor="#00005B";
+        
+        }else if(cont3az<63){
+          
+        if(saco_ficha==true){
+          
+          fa4z=fa4z+(num+num2)-5;
+        document.getElementById("CAS"+fa4z).style.backgroundColor="#00005B";
+        }else{
+         fa4z=fa4z+(num+num2)
+        document.getElementById("CAS"+fa4z).style.backgroundColor="#00005B"; 
+        }
+        saco_ficha=false;
+        
+        }
+
+           }
+           document.getElementById("turno").innerHTML=" Tira dados Jugador 1";
+turno=0;
+if (ganarAZ==4) {
+  alert("Gano el azul");
+}
+      }
+    }
+	</script>
+	
+    <style>
+    	.borde{
+        border: 1px solid black;
+    	}
+
+    </style>
+</head>
+<body>
+   <h3 id="turno">Tira dados Jugador 1</h3>	
+    <table border="0" width="400" align="center" id="Tabla">
+   	<tr >
+    <td bgcolor="#6495ED" colspan="7"></td>
+    <td class="borde" id="CAS48" data-j1="0" data-j2="0">48</td>
+   	<td class="borde" bgcolor="gray" align="center" id="CAS47" data-j1="0" data-j2="0" data-j3="0" data-j4="0">**</td>
+    <td class="borde" id="CAS46" data-j1="0" data-j2="0">46</td>
+   	<td bgcolor="#FFD700" colspan="7"></td>
+    </tr>
+    <tr>
+    <td bgcolor="#6495ED" colspan="1"></td>
+    <td   id="CASINTAZUL1" bgcolor="#00008B"></td>
+    <td bgcolor="#6495ED" colspan="3"></td>
+    <td  id="CASINTAZUL2" bgcolor="#00008B"></td>
+    <td bgcolor="#6495ED" colspan="1"></td>
+    <td class="borde" id="CAS49" data-j1="0" data-j2="0">49</td>
+    <td  bgcolor="#6495ED" id="CASAZUL1" ></td>
+    <td class="borde" id="CAS45" data-j1="0" data-j2="0">45</td>
+  	<td bgcolor="#FFD700" colspan="1"></td>
+    <td  id="CASINTAMARILLA1" bgcolor="DAA520"></td>
+    <td bgcolor="#FFD700" colspan="3"></td>
+    <td id="CASINTAMARILLA2" bgcolor="DAA520"></td>
+    <td bgcolor="#FFD700" colspan="1"></td>
+  	</tr>
+    <tr>	
+    <td bgcolor="#6495ED" colspan="7"></td>
+   	<td class="borde" id="CAS50" data-j1="0" data-j2="0">50</td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL2"></td>
+    <td class="borde" id="CAS44" data-j1="0" data-j2="0">44</td>
+    <td bgcolor="#FFD700" colspan="7"></td>
+  	</tr>
+    <tr>
+    <td bgcolor="#6495ED" colspan="7"></td>
+   	<td class="borde" id="CAS51" data-j1="0" data-j2="0">51</td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL3"></td>
+    <td class="borde" id="CAS43" data-j1="0" data-j2="0">43</td>
+   	<td bgcolor="#FFD700" colspan="7"></td>
+  	</tr>
+    <tr>
+   	<td bgcolor="#6495ED" colspan="7"></td>	
+   	<td class="borde" bgcolor="#6495ED" align="center" id="CAS52" data-j1="0" data-j2="0"></td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL4"></td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS42" data-j1="0" data-j2="0">**</td>
+    <td bgcolor="#FFD700" colspan="7"></td>
+  	</tr>
+    <tr>
+   	<td bgcolor="#6495ED" colspan="7"></td>
+   	<td class="borde" id="CAS53" data-j1="0" data-j2="0">53</td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL5"></td>
+    <td class="borde" id="CAS41" data-j1="0" data-j2="0">41</td>
+   	<td bgcolor="#FFD700" colspan="7" ></td>
+  	</tr>
+    <tr>
+   	<td bgcolor="#6495ED" colspan="1"></td>
+    <td class="borde" id="CASINTAZUL3" bgcolor="#00008B"></td>
+    <td bgcolor="#6495ED" colspan="3"></td>
+    <td class="borde" id="CASINTAZUL4" bgcolor="#00008B"></td>
+    <td bgcolor="#6495ED" colspan="1"></td>
+    <td class="borde" id="CAS54" data-j1="0" data-j2="0">54</td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL6"></td>
+    <td class="borde" id="CAS40" data-j1="0" data-j2="0">40</td>
+    <td bgcolor="#FFD700" colspan="1"></td>
+    <td class="borde" id="CASINTAMARILLA3" bgcolor="DAA520"></td>
+    <td bgcolor="#FFD700" colspan="3"></td>
+    <td class="borde" id="CASINTAMARILLA4" bgcolor="DAA520"></td>
+    <td bgcolor="#FFD700" colspan="1"></td>
+  	</tr>
+    <tr>
+    <td bgcolor="#6495ED" colspan="7"></td>
+    <td class="borde" id="CAS55" data-j1="0" data-j2="0">55</td>
+    <td class="borde" bgcolor="#6495ED" id="CASAZUL7"></td>
+    <td class="borde" id="CAS39" data-j1="0" data-j2="0">39</td>
+    <td bgcolor="#FFD700" colspan="7"></td>
+   	</tr>
+    <tr>
+    <tr>
+    <td class="borde" id="CAS63" data-j1="0" data-j2="0">63</td>
+    <td class="borde" id="CAS62" data-j1="0" data-j2="0">62</td>
+    <td class="borde" id="CAS61" data-j1="0" data-j2="0">61</td>
+    <td class="borde" id="CAS60" data-j1="0" data-j2="0">60</td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS59">**</td>
+    <td class="borde" id="CAS58" data-j1="0" data-j2="0">58</td>
+    <td class="borde" id="CAS57" data-j1="0" data-j2="0">57</td>
+    <td class="borde" id="CAS56" data-j1="0" data-j2="0">56</td>
+    <td bgcolor="black" id="CASCENTRALAZUL"></td>
+    <td class="borde" id="CAS38" data-j1="0" data-j2="0">38</td>
+    <td class="borde" id="CAS37" data-j1="0" data-j2="0">37</td>
+    <td class="borde" id="CAS36" data-j1="0" data-j2="0">36</td>
+    <td class="borde" bgcolor="#FFD700" id="CAS35" data-j1="0" data-j2="0"></td>
+    <td class="borde" id="CAS34" data-j1="0" data-j2="0">34</td>
+    <td class="borde" id="CAS33" data-j1="0" data-j2="0">33</td>
+    <td class="borde" id="CAS32" data-j1="0" data-j2="0">32</td>
+    <td class="borde" id="CAS31" data-j1="0" data-j2="0">31</td>
+    </tr>
+    <tr height="30">
+    <td class="borde" bgcolor="gray" align="center" id="CAS64" data-j1="0" data-j2="0">**</td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA1"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA2"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA3"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA4"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA5"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA6"></td>
+    <td class="borde" bgcolor="#FF4500" id="CASROJA7"></td>
+    <td bgcolor="black" id="CASCENTRAL"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA7"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA6"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA5"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA4"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA3"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA2"></td>
+    <td class="borde" bgcolor="#FFD700" id="CASAMARILLA1"></td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS30" data-j1="0" data-j2="0">**</td>
+    </tr>
+     <tr  width="200">
+    <td class="borde" id="CAS65" data-j1="0" data-j2="0">65</td>
+    <td class="borde" id="CAS66" data-j1="0" data-j2="0">66</td>
+    <td class="borde" id="CAS67" data-j1="0" data-j2="0">67</td>
+    <td class="borde" id="CAS68" data-j1="0" data-j2="0">68</td>
+    <td class="borde" bgcolor="#FF4500" id="CAS1" data-j1="0" data-j2="0"></td>
+    <td class="borde" id="CAS2" data-j1="0" data-j2="0">2</td>
+    <td class="borde" id="CAS3" data-j1="0" data-j2="0">3</td>
+    <td class="borde" id="CAS4" data-j1="0" data-j2="0">4</td>
+    <td bgcolor="black" id="CASCENTRALVERDE"></td>
+    <td class="borde" id="CAS22" data-j1="0" data-j2="0">22</td>
+    <td class="borde" id="CAS23" data-j1="0" data-j2="0">23</td>
+    <td class="borde" id="CAS24" data-j1="0" data-j2="0">24</td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS25">**</td>
+    <td class="borde" id="CAS26" data-j1="0" data-j2="0">26</td>
+    <td class="borde" id="CAS27" data-j1="0" data-j2="0">27</td>
+    <td class="borde" id="CAS28" data-j1="0" data-j2="0">28</td>
+    <td class="borde" id="CAS29" data-j1="0" data-j2="0">29</td>
+    </tr>
+    <tr>
+    <td bgcolor="#FF4500" colspan="7"></td>
+    <td class="borde" id="CAS5" data-j1="0" data-j2="0">5</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE7"></td>
+    <td class="borde" id="CAS21" data-j1="0" data-j2="0">21</td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+    </tr>
+   	<td bgcolor="#FF4500" colspan="1"></td>
+    <td bgcolor="#FF0000" id="CASINTROJA1" ></td>
+    <td bgcolor="#FF4500" colspan="3"></td>
+    <td bgcolor="#FF0000" id="CASINTROJA2"></td>
+    <td bgcolor="#FF4500" colspan="1"></td>
+    <td class="borde"  id="CAS6" data-j1="0" data-j2="0" data-j3="0" data-j4="0">6</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE6"></td>
+    <td class="borde" id="CAS20">20</td>
+     <td bgcolor="#32CD32" colspan="1"></td>
+    <td class="borde"  bgcolor="#008000" id="CASINTVERDE1"></td>
+    <td bgcolor="#32CD32" colspan="3"></td>
+    <td class="borde" bgcolor="#008000" id="CASINTVERDE2"></td>
+    <td bgcolor="#32CD32" colspan="1"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="7"></td>
+    <td class="borde" id="CAS7" data-j1="0" data-j2="0">7</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE5"></td>
+    <td class="borde" id="CAS19" data-j1="0" data-j2="0"  >19</td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="7"></td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS8">**</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE4"></td>
+    <td class="borde" bgcolor="#32CD32" id="CAS18" data-j1="0" data-j2="0"></td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="7"></td>
+    <td class="borde" id="CAS9">9</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE3" ></td>
+    <td class="borde" id="CAS17" data-j1="0" data-j2="0">17</td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="7"></td>
+    <td class="borde" id="CAS10" data-j1="0" data-j2="0">10</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE2"></td>
+    <td class="borde" id="CAS16" data-j1="0" data-j2="0">16</td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="1"></td>
+    <td bgcolor="#FF0000" id="CASINTROJA3"></td>
+    <td bgcolor="#FF4500" colspan="3"></td>
+    <td bgcolor="FF0000" id="CASINTROJA4"></td>
+    <td bgcolor="#FF4500" colspan="1"></td>
+    <td class="borde" id="CAS11" data-j1="0" data-j2="0">11</td>
+    <td class="borde" bgcolor="#32CD32" id="CASVERDE1"></td>
+    <td class="borde" id="CAS15" data-j1="0" data-j2="0">15</td>
+    <td bgcolor="#32CD32" colspan="1"></td>
+    <td class="borde" bgcolor="#008000" id="CASINTVERDE3"></td>
+    <td bgcolor="#32CD32" colspan="3"></td>
+    <td class="borde" bgcolor="#008000" id="CASINTVERDE4"></td>
+    <td bgcolor="#32CD32" colspan="1"></td>
+  		</tr>
+    <tr>
+   	<td bgcolor="#FF4500" colspan="7"></td>
+   	<td class="borde" id="CAS12" data-j1="0" data-j2="0">12</td>
+    <td class="borde" bgcolor="gray" align="center" id="CAS13">**</td>
+    <td class="borde" id="CAS14" data-j1="0" data-j2="0" >14</td>
+    <td bgcolor="#32CD32" colspan="7"></td>
+  		</tr>
+   </table>
+   <div>
+      <button onclick="girarDado()"  >Girar Dados</button>
+    <img src="" id="dado" >
+    <img src="" id="dado2" >
+    <button onclick="avanzar(1)">Mover Ficha 1</button>
+    <button onclick="avanzar(2)">Mover Ficha 2</button>
+    <button onclick="avanzar(3)">Mover Ficha 3</button>
+    <button onclick="avanzar(4)">Mover Ficha 4</button>
+</div>
+   
+</body>
+</html>+-
